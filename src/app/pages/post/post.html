@@ -18,14 +18,14 @@
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-          <table id="example2" class="table table-bordered table-striped">
+          <table id="postsTable" class="table table-bordered table-striped">
             <thead>
               <tr>
                 <th>Khách hàng</th>
                 <th>Mô tả</th>
                 <th>CTV</th>
-                <th>Số từ order</th>
-                <th>Số từ chỉ định</th>
+                <th>Số tiền</th>
+                <th>Trạng thái bài viết</th>
                 <th>Trạng thái thanh toán</th>
               </tr>
             </thead>
@@ -33,6 +33,10 @@
               <tr ng-repeat="item in vm.listpost.Data">
                 <td>{{item.CustomerName}}</td>
                 <td>{{item.Description}}</td>
+                <td>{{item.CollaboratorName}}</td>
+                <td>{{item.OrderAmount}}</td>
+                <td>{{item.StatusPost}}</td>
+                <td>{{item.StatusPaymentCustomer}}</td>
               </tr>
             </tbody>
           </table>
@@ -49,6 +53,6 @@
 
 <script type="text/javascript-lazy">
   $(function () {
-    $('#example2').DataTable()
+    $('#postsTable').DataTable()
   })
 </script>
