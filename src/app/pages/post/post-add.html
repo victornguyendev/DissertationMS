@@ -1,0 +1,126 @@
+<section class="content-header">
+  <h1>
+    Bài viết mới
+    <small>News</small>
+  </h1>
+</section>
+<!-- Main content -->
+<section class="content container-fluid">
+  <form>
+    <div class="box box-default">
+      <div class="box-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Tên bài viết</label>
+              <input class="form-control" placeholder="Tên bài viết" ng-model="vm.consultant.name">
+            </div>
+            <div class="form-group">
+              <label>Chủ đề</label>
+              <select class="form-control" ng-model="vm.consultant.status">
+                <option>Công nghệ thông tin</option>
+                <option>Hóa học </option>
+                <option>Vật lý</option>
+                <option>Kinh tế</option>
+                <option>Khác</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Ngôn ngữ</label>
+              <select class="form-control" ng-model="vm.consultant.status">
+                <option>Tiếng Việt</option>
+                <option>Tiếng Anh</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Mô tả bài viết </label>
+              <textarea class="form-control" placeholder="Ghi chú ý quan trọng" rows="3" ng-model="vm.consultant.note"></textarea>
+            </div>
+            <div class="form-group">
+              <label>Số từ</label>
+              <div class="form-group input-group">
+                <input type="number" class="form-control" placeholder="0" ng-model="vm.">
+                <span class="input-group-addon">Từ</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Số trang</label>
+              <div class="form-group input-group">
+                <input type="number" class="form-control" placeholder="0" ng-model="vm.">
+                <span class="input-group-addon">Trang</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Thành tiền</label>
+              <div class="form-group input-group">
+                <input type="number" disabled="disabled" class="form-control" ng-model="vm.">
+                <span class="input-group-addon">VNĐ</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Khách hàng</label>
+              <input class="form-control" disabled="disabled" ng-model="">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>
+                <h3>Cộng tác viên</h3>
+              </label>
+              <input class="form-control" placeholder="Cộng tác viên" ng-model="vm.consultant.name">
+            </div>
+            <div class="form-group">
+              <label>Số từ chỉ định</label>
+              <div class="form-group input-group">
+                <input type="number" class="form-control" placeholder="0" ng-model="vm.">
+                <span class="input-group-addon">Từ</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Số trang chỉ định</label>
+              <div class="form-group input-group">
+                <input type="number" class="form-control" placeholder="0" ng-model="vm.">
+                <span class="input-group-addon">Trang</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Thành tiền</label>
+              <div class="form-group input-group">
+                <input type="number" disabled="disabled" class="form-control" ng-model="vm.">
+                <span class="input-group-addon">VNĐ</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Ghi chú</label>
+              <textarea class="form-control" placeholder="Ghi chú ý quan trọng" rows="3" ng-model="vm.consultant.note"></textarea>
+            </div>
+            <br>
+            <div class="form-group">
+              <label>
+                <h3>
+                  Phương thức thanh toán
+                </h3>
+              </label>
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <input type="radio">
+                </span>
+                <input type="number" class="form-control" placeholder="Thanh toán toàn bộ">
+              </div>
+              <br>
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <input type="radio">
+                </span>
+                <input type="number" class="form-control" placeholder="Thanh toán từng đợt">
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-default" ng-click="vm.add()">Lưu lại</button>
+        <button type="reset" class="btn btn-default">Reset </button>
+      </div>
+    </div>
+  </form>
+</section>
+<!-- /.content -->

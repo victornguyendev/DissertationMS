@@ -1,0 +1,54 @@
+<section class="content-header">
+  <h1>
+    Bài viết
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li class="active">Post</li>
+  </ol>
+</section>
+
+<!-- Main content -->
+<section class="content container-fluid">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">Danh sách bài viết</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <table id="example2" class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>Khách hàng</th>
+                <th>Mô tả</th>
+                <th>CTV</th>
+                <th>Số từ order</th>
+                <th>Số từ chỉ định</th>
+                <th>Trạng thái thanh toán</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="item in vm.listpost.Data">
+                <td>{{item.CustomerName}}</td>
+                <td>{{item.Description}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
+    </div>
+    <!-- /.col -->
+  </div>
+  <!-- /.row -->
+</section>
+<!-- /.content -->
+
+<script type="text/javascript-lazy">
+  $(function () {
+    $('#example2').DataTable()
+  })
+</script>
