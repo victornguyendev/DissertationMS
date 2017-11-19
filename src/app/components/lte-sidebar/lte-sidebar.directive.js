@@ -11,15 +11,19 @@
       restrict: 'E',
       templateUrl: 'app/components/lte-sidebar/lte-sidebar.html',
       controller: LTESidebarController,
-      controllerAs: 'vm',
+      controllerAs: 'side',
       bindToController: true
     };
 
     return directive;
 
     /** @ngInject */
-    function LTESidebarController() {
+    function LTESidebarController($localStorage) {
       var vm = this;
+
+      if($localStorage.user) {
+        vm.userInfo = $localStorage.user;
+      }
     }
   }
 
