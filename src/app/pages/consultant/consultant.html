@@ -16,14 +16,23 @@
                 <tr>
                   <th>Khách hàng</th>
                   <th>Số điện thoại</th>
-                  <th>Số từ/Trang</th>
+                  <th>Số từ</th>
                   <th>Thời gian</th>
                   <th>Yêu cầu</th>
-                  <th>Ghi chú</th>
                   <th>Tư vấn viên</th>
+                  <th>Trạng thái</th>
                 </tr>
               </thead>
               <tbody>
+                  <tr ng-repeat="item in vm.listConsultant.Data">
+                      <td>{{item.CustomerName}}</td>
+                      <td>{{item.CustomerNumPhone}}</td>
+                      <td>{{item.NumChar}}</td>
+                      <td>{{item.DateTime}}</td>
+                      <td>{{item.Content}}</td>
+                      <td>{{item.CounselorName}}</td>
+                      <td>{{item.IsPotential}}</td>
+                  </tr>
               </tbody>
             </table>
           </div>
