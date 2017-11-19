@@ -8,9 +8,8 @@
     /** @ngInject */
     function ConsultantController() {
       var vm = this;
+      
       vm.addconsultant ={};
-
-      vm.add()
     }
   })();
   

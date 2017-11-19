@@ -1,4 +1,3 @@
-
 <!-- Left side column. contains the logo and sidebar -->
 <aside class="main-sidebar">
 
@@ -13,7 +12,8 @@
       <div class="pull-left info">
         <p>Alexander Pierce</p>
         <!-- Status -->
-        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        <a href="#">
+          <i class="fa fa-circle text-success"></i> Online</a>
       </div>
     </div>
 
@@ -22,27 +22,83 @@
       <div class="input-group">
         <input type="text" name="q" class="form-control" placeholder="Search...">
         <span class="input-group-btn">
-            <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-            </button>
-          </span>
+          <button type="submit" name="search" id="search-btn" class="btn btn-flat">
+            <i class="fa fa-search"></i>
+          </button>
+        </span>
       </div>
     </form>
     <!-- /.search form -->
 
     <!-- Sidebar Menu -->
     <ul class="sidebar-menu" data-widget="tree">
-      <li class="header">HEADER</li>
+      <li class="header">Menu</li>
       <!-- Optionally, you can add icons to the links -->
-      <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
-      <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
       <li class="treeview">
-        <a href="#"><i class="fa fa-link"></i> <span>Post</span>
+        <a href="#">
+          <i class="fa fa-link"></i>
+          <span>Tư vấn</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="#/post">List Post</a></li>
+          <li>
+            <a href="#/consultan/add">Tư vấn mới</a>
+          </li>
+          <li>
+            <a href="#/consultan">Danh sách tư vấn</a>
+          </li>
+        </ul>
+      </li>
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-link"></i>
+          <span>Bài viết</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li>
+            <a href="#/post/add"></a>Bài viết mới</li>
+          <li>
+            <a href="#/post">Danh sách bài viết</a>
+          </li>
+        </ul>
+      </li>
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-link"></i>
+          <span>Thanh toán</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li>
+            <a href="#/consultan/add">Thanh toán mới</a>
+          </li>
+          <li>
+            <a href="#/consultan">Danh sách thanh toán</a>
+          </li>
+        </ul>
+      </li>
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-link"></i>
+          <span>Khách hàng</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li>
+            <a href="#/consultan/add">Khách mới</a>
+          </li>
+          <li>
+            <a href="#/consultan">Danh sách khách hàng</a>
+          </li>
         </ul>
       </li>
     </ul>

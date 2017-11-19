@@ -42,7 +42,29 @@
         templateUrl: 'app/pages/post/post-detail.html',
         controller: 'PostController',
         controllerAs: 'vm'
-      });
+      })
+      
+      .state('main.consultant', {
+        url: '/consultant',
+        templateUrl: 'app/pages/consultant/consultant.html',
+        controller: 'ConsultantController',
+        controllerAs: 'vm'
+      })
+
+      .state('main.consultant-add', {
+        url: '/consultant/add',
+        templateUrl: 'app/pages/consultant/consultant-add.html',
+        controller: 'ConsultantController',
+        controllerAs: 'vm'
+      })
+
+      .state('main.consultant-detail', {
+        url: '/consultant/detail',
+        templateUrl: 'app/pages/consultant/consultant-detail.html',
+        controller: 'ConsultantController',
+        controllerAs: 'vm'
+      })
+      ;
 
     $urlRouterProvider.otherwise('/');
   }
