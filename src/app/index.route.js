@@ -37,8 +37,8 @@
         controller: 'PostController',
         controllerAs: 'vm'
       })
-      .state('main.post.detail', {
-        url: '/:id',
+      .state('main.post-detail', {
+        url: '/post/:id',
         templateUrl: 'app/pages/post/post-detail.html',
         controller: 'PostController',
         controllerAs: 'vm'
