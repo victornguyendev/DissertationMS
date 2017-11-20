@@ -2,8 +2,8 @@
   'use strict';
 
   angular
-    .module('angular')
-    .directive('lteHeader', lteHeader);
+  .module('angular')
+  .directive('lteHeader', lteHeader);
 
   /** @ngInject */
   function lteHeader() {

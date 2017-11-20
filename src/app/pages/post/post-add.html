@@ -12,31 +12,32 @@
           <div class="col-md-6">
             <div class="form-group">
               <label>Summary</label>
-              <input type="text" class="form-control" ng-model="vm.post.summary">
+              <input type="text" class="form-control" ng-model="vm.post.Summary">
             </div>
             <div class="form-group">
               <label>Số từ</label>
               <div class="input-group">
-                <input type="number" class="form-control" placeholder="0" ng-model="vm.post.num_chars">
+                <input type="number" class="form-control" placeholder="0" ng-model="vm.post.OrderNumChar">
                 <span class="input-group-addon">Từ</span>
               </div>
             </div>
             <div class="form-group">
               <label>Website</label>
-              <select class="form-control" ng-model="vm.post.website" ng-init="vm.post.website = ''">
+              <select class="form-control" ng-model="vm.post.WebsiteId" ng-init="vm.post.WebsiteId = ''">
                 <option value="">Select website</option>
+                <option ng-repeat="item in main.websites" value="{{item.WebsiteId}}">{{item.Name}}</option>
               </select>
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
               <label>Mô tả bài viết </label>
-              <textarea class="form-control post-description" rows="4" ng-model="vm.post.description"></textarea>
+              <textarea class="form-control post-description" rows="4" ng-model="vm.post.Description"></textarea>
             </div>
             <div class="form-group">
               <label>Thành tiền</label>
               <div class="input-group">
-                <input type="number" class="form-control" ng-model="vm.post.amount">
+                <input type="number" class="form-control" ng-model="vm.post.OrderAmount">
                 <span class="input-group-addon">VNĐ</span>
               </div>
             </div>
@@ -51,20 +52,16 @@
           <div class="box-body">
             <div class="form-group">
               <label>Cộng tác viên</label>
-              <input class="form-control" ng-model="vm.post.collaborator_name">
+              <select class="form-control" ng-model="vm.post.CollaboratorId" ng-init="vm.post.CollaboratorId = ''">
+                <option value="">Select Collaborator</option>
+                <option ng-repeat="item in vm.collaborators" value="{{item.id}}">{{item.name}}</option>
+              </select>
             </div>
             <div class="form-group">
               <label>Số từ chỉ định</label>
               <div class="input-group">
-                <input type="number" class="form-control" placeholder="0" ng-model="vm.post.collaborator_chars">
+                <input type="number" class="form-control" placeholder="0" ng-model="vm.post.CollNumChar">
                 <span class="input-group-addon">Từ</span>
-              </div>
-            </div>
-            <div class="form-group">
-              <label>Số trang chỉ định</label>
-              <div class="input-group">
-                <input type="number" class="form-control" placeholder="0" ng-model="vm.post.collaborator_pages">
-                <span class="input-group-addon">Trang</span>
               </div>
             </div>
           </div>
@@ -76,15 +73,21 @@
           <div class="box-body">
             <div class="form-group">
               <label>Số điện thoại</label>
-              <input type="text" class="form-control" ng-model="vm.post.customer_phone">
+              <!-- <select class="form-control select2" ng-model="vm.post.CustomerNumPhone" ng-change="vm.selectCustomer()">
+                <option ng-repeat="item in vm.customers" value="{{item.NumPhone}}">{{item.FulllName}}</option>
+              </select> -->
+              <input type="text" class="form-control" ng-model="vm.post.CustomerNumPhone" list="NumPhone" ng-change="vm.selectCustomer()">
+              <datalist id="NumPhone">
+                <option ng-repeat="item in vm.customers" value="{{item.NumPhone}}">
+              </datalist>
             </div>
             <div class="form-group">
               <label>Tên khách hàng</label>
-              <input type="text" class="form-control" ng-model="vm.post.customer_name">
+              <input type="text" class="form-control" ng-model="vm.post.CustomerName">
             </div>
             <div class="form-group">
               <label>Email</label>
-              <input type="email" class="form-control" ng-model="vm.post.customer_email">
+              <input type="email" class="form-control" ng-model="vm.post.CustomerEmail">
             </div>
           </div>
         </div>
