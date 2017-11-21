@@ -26,10 +26,7 @@
                     }, function error(err) {
                         $log.log(err)
                     });
-            }
-        }
-
-        return {
+            },
             addConsultant: function (data, callback) {
                 var data_request = {
                     'Customer': data.cusName,
@@ -39,7 +36,7 @@
                     'NumChar': data.words,
                     'SourceId': data.SourceId,
                     'WebsiteId': data.WebsiteId,
-                    
+                    'CounselorId'   : data.id,
 
                 };
                 var config = {
@@ -47,7 +44,7 @@
                         'Content-Type': 'application/json',
                     }
                 }
-                $http.post(api + 'consultationlog/filter', data_request, config)
+                $http.post(api + 'consultationlog/new', data_request, config)
                     .then(function success(res) {
                         callback(res.data);
                     }, function error(err) {

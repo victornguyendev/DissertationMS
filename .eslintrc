@@ -9,5 +9,6 @@
     "angular": true,
     "module": true,
     "inject": true
-  }
+  },
+  "root": true
 }

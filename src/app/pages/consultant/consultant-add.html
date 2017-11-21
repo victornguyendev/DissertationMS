@@ -29,7 +29,7 @@
                                     <input type="checkbox" ng-true-value="1" ng-false-value="0" ng-model="vm.check"> Đã chốt
                                 </label>
                             </div>        
-                            <div class="form-group" ng-show="vm.check == '1'">
+                            <div class="form-group" ng-if="vm.check == '1'">
                                 <div class="form-group">
                                     <label>Nội dung bài viết</label>
                                     <textarea class="form-control" placeholder="Nội dung bài viết" rows="3" ng-model="vm.consultant.postContent"></textarea>
@@ -61,21 +61,21 @@
                         </div>
                         <div class="form-group">
                             <label>Nguồn tham khảo</label>
-                            <select class="form-control" ng-model="vm.consultant.source">
+                            <select class="form-control" ng-model="vm.consultant.a">
                                 <option value="">Lựa chọn nguồn tham khảo</option>
-                                <option ng-repeat="item in vm.listSources" value="{{item.id}}">{{item.name}}</option>
+                                <option ng-repeat="item in vm.consultant.source" value="{{item.SourceId}}">{{item.Name}}</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Trang tham khảo</label>  
-                            <select class="form-control" ng-model="vm.consultant.page">
+                            <select class="form-control" ng-model="vm.consultant.sss">
                                 <option value="">Lựa chọn trang tham khảo</option>
-                                <option ng-repeat="item in vm.listWebsites" value="{{item.id}}">{{item.name}}</option>
+                                <option ng-repeat="item in vm.consultant.page" value="{{item.WebsiteId}}">{{item.Name}}</option>
                             </select>
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary" ng-click="vm.add()">Lưu lại</button>
+                <button type="submit" class="btn btn-primary">Lưu lại</button>
                 <button type="reset" class="btn btn-default">Reset </button>
             </div>
         </div>
