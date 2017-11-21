@@ -6,11 +6,13 @@
 	.controller('PostController', PostController);
 
 	/** @ngInject */
-	function PostController(post, collaborator, customer, user, moment, $localStorage) {
+	function PostController(post, collaborator, customer, user, moment, $localStorage, $stateParams, $window) {
 		var vm = this;
 
 		var CounselorId = $localStorage.user.UserId;
 		var token = $localStorage.user.Token;
+		var id = $stateParams.id;
+
 		vm.post = {};
 
 		post.listPosts(function(res) {
@@ -32,6 +34,10 @@
 					} else {
 						vm.listpost.Data[key].StatusPost = 'Hủy';
 					}
+
+					if(value.Description.length > 15) {
+						vm.listpost.Data[key].Description = value.Description.slice(0, 15) + '...';
+					}
 				})
 			}
 		});
@@ -51,7 +57,6 @@
 
 		user.loginInfo(token, function(res) {
 			vm.loginInfo = res;
-			console.log(res);
 		});
 
 		vm.post.CustomerId = "";
@@ -70,11 +75,27 @@
 			}
 		}
 
+		vm.viewDetail = function(id) {
+			$window.location = "/post/" + id;
+		}
+
+		/* Create post */
 		vm.createPost = function() {
 			vm.post.CounselorId = vm.loginInfo.CounselorId;
 			post.addPost(vm.post, function(res) {
 				console.log(res);
 			})
 		}
+		/* End create post */
+
+		/* Post detail */
+		if(id) {
+			post.postDetail(id, function(res) {
+				vm.post = res;
+				console.log(res);
+			})
+		}
+		
+		/* End post detail */
 	}
 })();

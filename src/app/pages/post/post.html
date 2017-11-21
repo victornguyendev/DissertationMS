@@ -30,7 +30,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr ng-repeat="item in vm.listpost.Data">
+              <tr class="table-item-link" ng-repeat="item in vm.listpost.Data" ng-click="vm.viewDetail(item.PostId)">
                 <td>{{item.CustomerName}}</td>
                 <td>{{item.Description}}</td>
                 <td>{{item.CollaboratorName}}</td>

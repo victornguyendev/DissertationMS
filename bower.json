@@ -23,7 +23,8 @@
     "fastclick": "^1.0.6",
     "ngstorage": "^0.3.11",
     "bootstrap-ui-datetime-picker": "^2.6.0",
-    "select2": "^4.0.5"
+    "select2": "^4.0.5",
+    "tg-angular-validator": "^1.2.10"
   },
   "overrides": {
     "bootstrap-sass": {

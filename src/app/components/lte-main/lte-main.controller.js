@@ -6,13 +6,17 @@
   .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, common) {
+  function MainController($timeout, common, $localStorage) {
     var vm = this;
 
     $timeout(function(){
       var script = angular.element('<script src="assets/js/adminlte.js"></script>');
       angular.element('body').append(script);
     },0);
+
+    if(!$localStorage.user) {
+      $window.location = "/login";
+    }
 
     common.listWebsites(function(res) {
       vm.websites = res;

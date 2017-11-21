@@ -57,7 +57,21 @@ function postFactory(api, $log, $http) {
 				}, function error(err) {
 					$log.log(err)
 				});
-		}
+		},
+
+		postDetail: function(id, callback) {
+			var config = {
+				header: {
+					'Content-Type': 'application/json'
+				}
+			}
+			$http.get(api + 'posts/get?id=' + id, config)
+				.then(function success(res){
+					callback(res.data);
+				}, function error(err) {
+					$log.log(err)
+				});
+		},
 	}
 }
 })();
