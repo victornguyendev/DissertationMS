@@ -6,7 +6,7 @@
   .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, common, $localStorage) {
+  function MainController($timeout, common, $localStorage, $window) {
     var vm = this;
 
     $timeout(function(){
