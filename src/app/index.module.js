@@ -1,17 +1,16 @@
 (function() {
-  'use strict';
+    'use strict';
 
-  angular
-    .module('angular', [
-    	'ngAnimate',
-    	'ngTouch',
-    	'ngSanitize',
-    	'ngResource',
-        'ngStorage',
-    	'ui.router',
-    	'ui.bootstrap',
-    	'ui.select2',
-    	'ui.bootstrap.datetimepicker'
-    ]);
+    angular
+        .module('angular', [
+            'ngAnimate',
+            'ngTouch',
+            'ngSanitize',
+            'ngResource',
+            'ngStorage',
+            'ui.router',
+            'ui.bootstrap',
+            'ui.bootstrap.datetimepicker'
+        ]);
 
 })();
