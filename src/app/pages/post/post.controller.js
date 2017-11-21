@@ -12,8 +12,70 @@
 		var CounselorId = $localStorage.user.UserId;
 		var token = $localStorage.user.Token;
 		var id = $stateParams.id;
-
+		console.log($localStorage.user);
 		vm.post = {};
+
+		vm.paymentlogs = {
+		  "Data": [
+		    {
+		      "PaymentLogId": 1,
+		      "BankAccountId": 1,
+		      "Content": "sample string 2",
+		      "Amount": 3.1,
+		      "PostId": 1,
+		    },
+		    {
+		      "PaymentLogId": 1,
+		      "BankAccountId": 1,
+		      "Content": "sample string 2",
+		      "Amount": 3.1,
+		      "PostId": 1,
+		    }
+		  ],
+		  "Index": 1,
+		  "Size": 2,
+		  "Total": 3
+		};
+
+		vm.consultationLogs = {
+		  "Data": [
+		    {
+		      "ConsultationLogId": 1,
+		      "CounselorId": 1,
+		      "CounselorName": "sample string 2",
+		      "CustomerId": 1,
+		      "CustomerName": "sample string 3",
+		      "CustomerNumPhone": "sample string 4",
+		      "Content": "sample string 1",
+		      "NumChar": 6,
+		      "DateTime": "22-11-2017 02:30 AM",
+		      "SourceId": 1,
+		      "SourceName": "sample string 8",
+		      "WebsiteId": 1,
+		      "WebsiteName": "sample string 9",
+		      "IsPotential": true
+		    },
+		    {
+		      "ConsultationLogId": 1,
+		      "CounselorId": 1,
+		      "CounselorName": "sample string 2",
+		      "CustomerId": 1,
+		      "CustomerName": "sample string 3",
+		      "CustomerNumPhone": "sample string 4",
+		      "Content": "sample string 2",
+		      "NumChar": 6,
+		      "DateTime": "22-11-2017 02:30 AM",
+		      "SourceId": 1,
+		      "SourceName": "sample string 8",
+		      "WebsiteId": 1,
+		      "WebsiteName": "sample string 9",
+		      "IsPotential": true
+		    }
+		  ],
+		  "Index": 1,
+		  "Size": 2,
+		  "Total": 3
+		}
 
 		post.listPosts(function(res) {
 			vm.listpost = res;
@@ -94,7 +156,6 @@
 				console.log(res);
 			})
 		}
-		
 		/* End post detail */
 	}
 })();

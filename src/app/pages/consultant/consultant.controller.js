@@ -23,7 +23,6 @@
 
     consultant.listConsultant(function (res) {
       vm.listConsultant = res;
-      console.log(res);
       res.Data.forEach(function (value, key) {
         if (value.IsPotential == true) {
           vm.listConsultant.Data[key].IsPotential = 'Đã chốt';
@@ -46,7 +45,6 @@
 
     user.loginInfo(token, function (res) {
       vm.loginInfo = res;
-      console.log(res);
     });
 
     vm.addConsultant = function () {

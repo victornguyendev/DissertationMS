@@ -78,25 +78,25 @@
               </select> -->
               <input type="text" class="form-control" ng-model="vm.post.CustomerNumPhone" list="NumPhone" ng-change="vm.selectCustomer()">
               <datalist id="NumPhone">
-                <option ng-repeat="item in vm.customers" value="{{item.NumPhone}}">
-                </datalist>
-              </div>
-              <div class="form-group">
-                <label>Tên khách hàng</label>
-                <input type="text" class="form-control" ng-model="vm.post.CustomerName">
-              </div>
-              <div class="form-group">
-                <label>Email</label>
-                <input type="email" class="form-control" ng-model="vm.post.CustomerEmail">
-              </div>
+                <option ng-repeat="item in vm.customers" value="{{item.NumPhone}}"></option>
+              </datalist>
+            </div>
+            <div class="form-group">
+              <label>Tên khách hàng</label>
+              <input type="text" class="form-control" ng-model="vm.post.CustomerName">
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" class="form-control" ng-model="vm.post.CustomerEmail">
             </div>
           </div>
         </div>
-        <div class="box-footer">
-          <button type="submit" class="btn btn-primary">Lưu lại</button>
-          <button type="reset" class="btn btn-default">Reset</button>
-        </div>
       </div>
-    </form>
-  </section>
+      <div class="box-footer">
+        <button type="submit" class="btn btn-primary">Lưu lại</button>
+        <button type="reset" class="btn btn-default">Reset</button>
+      </div>
+    </div>
+  </form>
+</section>
 <!-- /.content -->
