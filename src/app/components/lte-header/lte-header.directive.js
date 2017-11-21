@@ -18,7 +18,7 @@
     return directive;
 
     /** @ngInject */
-    function LTEHeaderController($localStorage, $scope) {
+    function LTEHeaderController($localStorage) {
       var vm = this;
       if($localStorage.user) {
         vm.userInfo = $localStorage.user;

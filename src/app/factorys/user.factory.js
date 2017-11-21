@@ -38,6 +38,20 @@ function userFactory(api, $log, $http) {
 				}, function error(err) {
 					$log.log(err)
 				});
+		},
+
+		logout: function(token, callback) {
+			var config = {
+				header: {
+					'Content-Type': 'application/json'
+				}
+			}
+			$http.get(api + 'login/logout?token=' + token, config)
+				.then(function success(res){
+					callback(res.data);
+				}, function error(err) {
+					$log.log(err)
+				});
 		}
 	}
 }

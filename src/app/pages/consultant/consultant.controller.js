@@ -26,7 +26,6 @@
 
     consultant.listConsultant(function (res) {
       vm.listConsultant = res;
-      console.log(res);
       if (res) {
         res.Data.forEach(function (value, key) {
           if (value.IsPotential == true) {
@@ -37,46 +36,34 @@
         })
       }
     })
-    collaborator.listCollaborators(function (res) {
-      if (res) {
-        vm.collaborators = res.Data;
-      }
-    });
 
-    customer.listCustomers(function (res) {
-      if (res) {
-        vm.customers = res.Data;
-      }
-    });
-
-    common.listWebsites(function (res) {
-      if (res) {
-        vm.consultant.page = res;
-      }
-    });
-
-    common.listSources(function (res) {
-      console.log(res);
-      if (res) {
-        vm.consultant.source = res;
-      }
-    });
-
-    user.loginInfo(token, function (res) {
-      vm.loginInfo = res;
-      console.log(res);
-    });
-
-    vm.addConsultant = function () {
-      vm.consultant.id = vm.loginInfo.CounselorId;
-      consultant.addConsultant(vm.consultant, function (res) {
-        console.log(res);
-        // if (vm.consultant.postContent && vm.consultant.postMoney) {
-        //   post.addPost(, function (res) {
-        //     console.log(res);
-        //   })
-        // }
-      })
-    };
+common.listWebsites(function (res) {
+  if (res) {
+    vm.consultant.page = res;
   }
-})();
+});
+
+common.listSources(function (res) {
+  console.log(res);
+  if (res) {
+    vm.consultant.source = res;
+  }
+});
+
+user.loginInfo(token, function (res) {
+  vm.loginInfo = res;
+});
+
+vm.addConsultant = function () {
+  vm.consultant.id = vm.loginInfo.CounselorId;
+  consultant.addConsultant(vm.consultant, function (res) {
+    console.log(res);
+    // if (vm.consultant.postContent && vm.consultant.postMoney) {
+    //   post.addPost(, function (res) {
+    //     console.log(res);
+    //   })
+    // }
+  })
+};
+}
+});

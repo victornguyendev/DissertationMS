@@ -78,7 +78,7 @@
               </select> -->
               <input type="text" class="form-control" ng-model="vm.post.CustomerNumPhone" list="NumPhone" ng-change="vm.selectCustomer()">
               <datalist id="NumPhone">
-                <option ng-repeat="item in vm.customers" value="{{item.NumPhone}}">
+                <option ng-repeat="item in vm.customers" value="{{item.NumPhone}}"></option>
               </datalist>
             </div>
             <div class="form-group">
