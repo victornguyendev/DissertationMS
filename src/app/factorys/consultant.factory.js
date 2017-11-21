@@ -28,5 +28,32 @@
                     });
             }
         }
+
+        return {
+            addConsultant: function (callback) {
+                var data_request = {
+                    'Customer': null,
+                    'CustomerNumPhone': null,
+                    'Content': null,
+                    'Datetime': null,
+                    'NumChar': null,
+                    'SourceId': null,
+                    'WebsiteId': null,
+                    
+
+                };
+                var config = {
+                    header: {
+                        'Content-Type': 'application/json',
+                    }
+                }
+                $http.post(api + 'consultationlog/filter', data_request, config)
+                    .then(function success(res) {
+                        callback(res.data);
+                    }, function error(err) {
+                        $log.log(err)
+                    });
+            }
+        }
     }
 })();

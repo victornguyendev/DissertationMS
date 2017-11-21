@@ -4,10 +4,9 @@
         <small>Detail</small>
     </h1>
 </section>
-
 <!-- Main content -->
 <section class="content container-fluid">
-    <form ng-submit="vm.addConsultant()">
+    <form>
         <div class="box box-default">
             <div class="box-body">
                 <div class="row">
@@ -26,38 +25,49 @@
                                 <input class="form-control" placeholder="Số điện thoại" ng-model="vm.consultant.phone">
                             </div>
                             <div class="form-group">
-                                <label>Nhu cầu khách hàng</label>
-                                <textarea class="form-control" placeholder="Nhu cầu của khách hàng " rows="5" ng-model="vm.consultant.need"></textarea>
+                                <label>Nội dung tư vấn</label>
+                                <textarea class="form-control" placeholder="Nội dung TVV đã tư vấn cho khách hàng" rows="5" ng-model="vm.consultant.content"></textarea>
                             </div>
                             <div class="form-group">
-                                <label>Nội dung tư vấn</label>
-                                <textarea class="form-control" placeholder="Nội dung TVV đã tư vấn cho khách hàng" rows="3" ng-model="vm.consultant.content"></textarea>
+                                <label>
+                                    <input type="checkbox" ng-true-value="1" ng-false-value="0" ng-model="vm.check"> Đã chốt
+                                </label>
+
+                            </div>
+                            <div class="form-group" ng-show="vm.check == '1'">
+                                <div class="form-group">
+                                    <label>Nội dung bài viết</label>
+                                    <textarea class="form-control" placeholder="Nội dung bài viết" rows="3" ng-model="vm.consultant.content"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Thành tiền</label>
+                                    <div class="form-group input-group">
+                                        <input type="number" class="form-control" disabled="disabled" ng-model="vm.consultant.pages">
+                                        <span class="input-group-addon">VNĐ</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <!-- /.col -->
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="birthDate">Ngày tư vấn</label>
-                            <input type="datetime-local" id="birthDate" class="form-control" ng-model="vm.consultant.datetime">
+                            <label>Ngày tư vấn</label>
+                            <input type="text" class="form-control datetimepicker" datetime-picker="dd-MM-yyyy hh:mm a" ng-model="vm.time" is-open="true">
                         </div>
                         <div class="form-group">
                             <label>Số từ</label>
                             <div class="form-group input-group">
-                                <input type="number" class="form-control" ng-model="vm.consultant.numberword">
+                                <input type="number" class="form-control" ng-model="vm.consultant.words">
                                 <span class="input-group-addon">Từ</span>
                             </div>
                         </div>
                         <div class="form-group">
                             <label>Số trang</label>
                             <div class="form-group input-group">
-                                <input type="number" class="form-control" ng-model="vm.consultant.numberpage">
+                                <input type="number" class="form-control" ng-model="vm.consultant.Website">
                                 <span class="input-group-addon">Trang</span>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Ghi chú </label>
-                            <textarea class="form-control" placeholder="Ghi chú ý quan trọng" rows="3" ng-model="vm.consultant.note"></textarea>
                         </div>
                         <div class="form-group">
                             <label>Nguồn tham khảo</label>
@@ -69,17 +79,11 @@
                                 <option>Khác</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label>Trạng thái</label>
-                            <select class="form-control" ng-model="vm.consultant.status">
-                                <option>Đã chốt</option>
-                                <option>Phân vân</option>
-                                <option>Khác</option>
-                            </select>
-                        </div>
+
+
                     </div>
                 </div>
-                <button type="submit" class="btn btn-default">Lưu lại</button>
+                <button type="submit" class="btn btn-default" ng-click="vm.add()">Lưu lại</button>
                 <button type="reset" class="btn btn-default">Reset </button>
             </div>
         </div>

@@ -20,8 +20,10 @@ function ConsultantController(consultant, moment) {
       } else {
         vm.listConsultant.Data[key].IsPotential = 'Chưa chốt';
       }
-    })   
+    }) 
   })
+
+  
 }
 })();
   
