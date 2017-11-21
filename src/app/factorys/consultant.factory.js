@@ -30,15 +30,15 @@
         }
 
         return {
-            addConsultant: function (callback) {
+            addConsultant: function (data, callback) {
                 var data_request = {
-                    'Customer': null,
-                    'CustomerNumPhone': null,
-                    'Content': null,
-                    'Datetime': null,
-                    'NumChar': null,
-                    'SourceId': null,
-                    'WebsiteId': null,
+                    'Customer': data.cusName,
+                    'CustomerNumPhone': data.cusPhone,
+                    'Content': data.content,
+                    'Datetime': data.datetime,
+                    'NumChar': data.words,
+                    'SourceId': data.SourceId,
+                    'WebsiteId': data.WebsiteId,
                     
 
                 };

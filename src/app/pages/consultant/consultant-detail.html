@@ -17,10 +17,6 @@
                                 <input class="form-control" placeholder="Họ tên" ng-model="vm.consultant.name">
                             </div>
                             <div class="form-group">
-                                <label>Email</label>
-                                <input class="form-control" placeholder="Email" ng-model="vm.consultant.email">
-                            </div>
-                            <div class="form-group">
                                 <label>Số điện thoại</label>
                                 <input class="form-control" placeholder="Số điện thoại" ng-model="vm.consultant.phone">
                             </div>
@@ -32,7 +28,6 @@
                                 <label>
                                     <input type="checkbox" ng-true-value="1" ng-false-value="0" ng-model="vm.check"> Đã chốt
                                 </label>
-
                             </div>
                             <div class="form-group" ng-show="vm.check == '1'">
                                 <div class="form-group">
@@ -79,8 +74,6 @@
                                 <option>Khác</option>
                             </select>
                         </div>
-
-
                     </div>
                 </div>
                 <button type="submit" class="btn btn-default" ng-click="vm.add()">Lưu lại</button>
