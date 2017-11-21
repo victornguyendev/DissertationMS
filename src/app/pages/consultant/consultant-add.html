@@ -17,10 +17,6 @@
                                 <input class="form-control" placeholder="Họ tên" ng-model="vm.consultant.name">
                             </div>
                             <div class="form-group">
-                                <label>Email</label>
-                                <input class="form-control" placeholder="Email" ng-model="vm.consultant.email">
-                            </div>
-                            <div class="form-group">
                                 <label>Số điện thoại</label>
                                 <input class="form-control" placeholder="Số điện thoại" ng-model="vm.consultant.phone">
                             </div>
@@ -32,7 +28,6 @@
                                 <label>
                                     <input type="checkbox" ng-true-value="1" ng-false-value="0" ng-model="vm.check"> Đã chốt
                                 </label>
-
                             </div>
                             <div class="form-group" ng-show="vm.check == '1'">
                                 <div class="form-group">
@@ -63,24 +58,21 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>Số trang</label>
-                            <div class="form-group input-group">
-                                <input type="number" class="form-control" ng-model="vm.consultant.pages">
-                                <span class="input-group-addon">Trang</span>
-                            </div>
-                        </div>
-                        <div class="form-group">
                             <label>Nguồn tham khảo</label>
                             <select class="form-control" ng-model="vm.consultant.source">
                                 <option>Google</option>
                                 <option>Facebook</option>
-                                <option>MBA</option>
-                                <option>Viết thuê</option>
-                                <option>Khác</option>
+                                <option>Lựa chọn</option>
                             </select>
                         </div>
-
-
+                        <div class="form-group">
+                            <label>Trang tham khảo</label>  
+                            <select class="form-control" ng-model="vm.consultant.page">
+                                <option>MBA</option>
+                                <option>Viết thuê</option>
+                                <option>Lựa chọn</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-default" ng-click="vm.add()">Lưu lại</button>
