@@ -64,7 +64,12 @@
         controller: 'ConsultantController',
         controllerAs: 'vm'
       })
-      ;
+      .state('main.logout', {
+        url: '/logout',
+        templateUrl: 'app/pages/logout/logout.html',
+        controller: 'LogoutController',
+        controllerAs: 'vm'
+      });
 
     $urlRouterProvider.otherwise('/');
   }

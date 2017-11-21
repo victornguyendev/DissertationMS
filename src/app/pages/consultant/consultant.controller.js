@@ -6,7 +6,7 @@
     .controller('ConsultantController', ConsultantController);
 
   /** @ngInject */
-  function ConsultantController(post, collaborator, customer, user, moment, $localStorage) {
+  function ConsultantController(consultant, post, collaborator, customer, user, moment, $localStorage) {
     var vm = this;
 
     vm.time = "";
