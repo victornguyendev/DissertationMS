@@ -20,7 +20,20 @@
 				}, function error(err) {
 					$log.log(err)
 				});
-			}
-		}
+			},
+			listSources: function(callback) {
+				var config = {
+					header: {
+						'Content-Type': 'application/json'
+					}
+				}
+				$http.get(api + 'common/sources', config)
+				.then(function success(res){
+					callback(res.data);
+				}, function error(err) {
+					$log.log(err)
+				});
+			}		
+		}	
 	}
 })();

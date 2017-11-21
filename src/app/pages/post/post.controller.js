@@ -39,8 +39,7 @@
 		collaborator.listCollaborators(function(res) {
 			if(res) {
 				vm.collaborators = res.Data;
-			}
-			
+			}		
 		});
 
 		customer.listCustomers(function(res) {
