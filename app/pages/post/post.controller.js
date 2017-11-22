@@ -12,8 +12,72 @@
 		var CounselorId = $localStorage.user.UserId;
 		var token = $localStorage.user.Token;
 		var id = $stateParams.id;
-
+		console.log($localStorage.user);
 		vm.post = {};
+
+		vm.paymentlogs = {
+			"Data": [
+			{
+				"BackUserName": "Nguyễn Văn Khôi",
+				"BankNumber": "1234 2323 4343 2352",
+				"BankName": "TP Bank",
+				"Content": "sample string 2",
+				"Amount": 3.1,
+				"DayTrading": "22-11-2017 02:33 PM",
+			},
+			{
+				"BackUserName": "Phan Minh Tú",
+				"BankNumber": "1234 2323 4343 2352",
+				"BankName": "ACB Bank",
+				"Content": "sample string 2",
+				"Amount": 3.1,
+				"DayTrading": "22-11-2017 02:33 PM",
+			}
+			],
+			"Index": 1,
+			"Size": 2,
+			"Total": 3
+		};
+
+		vm.consultationLogs = {
+			"Data": [
+			{
+				"ConsultationLogId": 1,
+				"CounselorId": 1,
+				"CounselorName": "sample string 2",
+				"CustomerId": 1,
+				"CustomerName": "sample string 3",
+				"CustomerNumPhone": "sample string 4",
+				"Content": "sample string 1",
+				"NumChar": 6,
+				"DateTime": "22-11-2017 02:30 AM",
+				"SourceId": 1,
+				"SourceName": "sample string 8",
+				"WebsiteId": 1,
+				"WebsiteName": "sample string 9",
+				"IsPotential": true
+			},
+			{
+				"ConsultationLogId": 1,
+				"CounselorId": 1,
+				"CounselorName": "sample string 2",
+				"CustomerId": 1,
+				"CustomerName": "sample string 3",
+				"CustomerNumPhone": "sample string 4",
+				"Content": "sample string 2",
+				"NumChar": 6,
+				"DateTime": "22-11-2017 02:30 AM",
+				"SourceId": 1,
+				"SourceName": "sample string 8",
+				"WebsiteId": 1,
+				"WebsiteName": "sample string 9",
+				"IsPotential": true
+			}
+			],
+			"Index": 1,
+			"Size": 2,
+			"Total": 3
+		}
 
 		post.listPosts(function(res) {
 			vm.listpost = res;
@@ -94,7 +158,6 @@
 				console.log(res);
 			})
 		}
-		
 		/* End post detail */
 	}
 })();

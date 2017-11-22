@@ -1,53 +1,46 @@
 <section class="content-header">
-    <h1>
-      Danh sách tư vấn
-      <small>List post</small>
-    </h1>
-  </section>
-  <!-- Main content -->
-  <section class="content container-fluid">
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="box">
-          <!-- /.box-header -->
-          <div class="box-body">
-            <table id="example2" class="table table-bordered table-striped">
-              <thead>
-                <tr>
-                  <th>Khách hàng</th>
-                  <th>Số điện thoại</th>
-                  <th>Số từ</th>
-                  <th>Thời gian</th>
-                  <th>Yêu cầu</th>
-                  <th>Tư vấn viên</th>
-                  <th>Trạng thái</th>
-                </tr>
-              </thead>
-              <tbody>
-                  <tr ng-repeat="item in vm.listConsultant.Data">
-                      <td>{{item.CustomerName}}</td>
-                      <td>{{item.CustomerNumPhone}}</td>
-                      <td>{{item.NumChar}}</td>
-                      <td>{{item.DateTime}}</td>
-                      <td>{{item.Content}}</td>
-                      <td>{{item.CounselorName}}</td>
-                      <td>{{item.IsPotential}}</td>
-                  </tr>
-              </tbody>
-            </table>
-          </div>
-          <!-- /.box-body -->
+  <h1>
+    Danh sách tư vấn
+  </h1>
+</section>
+<!-- Main content -->
+<section class="content container-fluid">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+        <!-- /.box-header -->
+        <div class="box-body">
+          <table datatable="ng" class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>Khách hàng</th>
+                <th>Số điện thoại</th>
+                <th>Số từ</th>
+                <th>Thời gian</th>
+                <th>Yêu cầu</th>
+                <th>Tư vấn viên</th>
+                <th>Trạng thái</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="item in vm.listConsultant.Data" ng-click="vm.viewDetail(item.ConsultationLogId)">
+                <td>{{item.CustomerName}}</td>
+                <td>{{item.CustomerNumPhone}}</td>
+                <td>{{item.NumChar}}</td>
+                <td>{{item.DateTime}}</td>
+                <td>{{item.Content}}</td>
+                <td>{{item.CounselorName}}</td>
+                <td>{{item.IsPotential}}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <!-- /.box -->
+        <!-- /.box-body -->
       </div>
-      <!-- /.col -->
+      <!-- /.box -->
     </div>
-    <!-- /.row -->
-  </section>
+    <!-- /.col -->
+  </div>
+  <!-- /.row -->
+</section>
   <!-- /.content -->
-  
-  <script type="text/javascript-lazy">
-    $(function () {
-      $('#example2').DataTable()
-    })
-  </script>

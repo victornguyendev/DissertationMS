@@ -25,6 +25,11 @@
         controller: 'LoginController',
         controllerAs: 'vm'
       })
+      .state('logout', {
+        url: '/logout',
+        controller: 'LogoutController',
+        controllerAs: 'vm'
+      })
       .state('main.post', {
         url: '/post',
         templateUrl: 'app/pages/post/post.html',
@@ -59,12 +64,11 @@
       })
 
       .state('main.consultant-detail', {
-        url: '/consultant/detail',
+        url: '/consultant/:id',
         templateUrl: 'app/pages/consultant/consultant-detail.html',
         controller: 'ConsultantController',
         controllerAs: 'vm'
-      })
-      ;
+      });
 
     $urlRouterProvider.otherwise('/');
   }
