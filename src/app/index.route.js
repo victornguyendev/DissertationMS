@@ -64,7 +64,7 @@
       })
 
       .state('main.consultant-detail', {
-        url: '/consultant/detail',
+        url: '/consultant/:id',
         templateUrl: 'app/pages/consultant/consultant-detail.html',
         controller: 'ConsultantController',
         controllerAs: 'vm'

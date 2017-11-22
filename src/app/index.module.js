@@ -10,7 +10,8 @@
             'ngStorage',
             'ui.router',
             'ui.bootstrap',
-            'ui.bootstrap.datetimepicker'
+            'ui.bootstrap.datetimepicker',
+            'ui.utils.masks',
         ]);
 
 })();

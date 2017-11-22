@@ -6,12 +6,13 @@
     .controller('ConsultantController', ConsultantController);
 
   /** @ngInject */
-  function ConsultantController(common, consultant, post, collaborator, customer, user, moment, $localStorage) {
+  function ConsultantController( common, consultant, post, collaborator, customer, user, moment, $localStorage,$window,$stateParams) {
     var vm = this;
-
-    vm.time = "";
+    var defautVa = 0;
+    vm.time = new Date();
+    var postMoney = 10000000;
+    var id = $stateParams.id;
     vm.consultant = {};
-
     // define check item
     vm.isCheck = false;
     // define angular cookie 
@@ -26,6 +27,7 @@
 
     consultant.listConsultant(function (res) {
       vm.listConsultant = res;
+      console.log(res);
       if (res) {
         res.Data.forEach(function (value, key) {
           if (value.IsPotential == true) {
@@ -36,34 +38,57 @@
         })
       }
     })
+    collaborator.listCollaborators(function (res) {
+      if (res) {
+        vm.collaborators = res.Data;
+      }
+    });
 
-common.listWebsites(function (res) {
-  if (res) {
-    vm.consultant.page = res;
+    customer.listCustomers(function (res) {
+      if (res) {
+        vm.customers = res.Data;
+      }
+    });
+
+    common.listWebsites(function (res) {
+      if (res) {
+        vm.consultant.page = res;
+      }
+    });
+
+    common.listSources(function (res) {
+      console.log(res);
+      if (res) {
+        vm.consultant.source = res;
+      }
+    });
+
+    user.loginInfo(token, function (res) {
+      vm.loginInfo = res;
+      console.log(res);
+    });
+
+    vm.addConsultant = function () {
+      vm.consultant.id = vm.loginInfo.CounselorId;
+      consultant.addConsultant(vm.consultant, function (res) {
+        console.log(res);
+        // if (vm.consultant.postContent && vm.consultant.postMoney) {
+        //   post.addPost(, function (res) {
+        //     console.log(res);
+        //   })
+        // }
+      })
+    };
+
+    vm.viewDetail = function(id) {
+      $window.location = "/consultant/" + id;
+		}
+   
+    if(id) {
+			consultant.consultantDetail(id, function(res) {
+				vm.consultant = res;
+				console.log(res);
+			})
+		}
   }
-});
-
-common.listSources(function (res) {
-  console.log(res);
-  if (res) {
-    vm.consultant.source = res;
-  }
-});
-
-user.loginInfo(token, function (res) {
-  vm.loginInfo = res;
-});
-
-vm.addConsultant = function () {
-  vm.consultant.id = vm.loginInfo.CounselorId;
-  consultant.addConsultant(vm.consultant, function (res) {
-    console.log(res);
-    // if (vm.consultant.postContent && vm.consultant.postMoney) {
-    //   post.addPost(, function (res) {
-    //     console.log(res);
-    //   })
-    // }
-  })
-};
-}
-});
+})();

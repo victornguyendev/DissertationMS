@@ -36,7 +36,7 @@
                     'NumChar': data.words,
                     'SourceId': data.SourceId,
                     'WebsiteId': data.WebsiteId,
-                    'CounselorId'   : data.id,
+                    'CounselorId': data.id,
 
                 };
                 var config = {
@@ -50,7 +50,21 @@
                     }, function error(err) {
                         $log.log(err)
                     });
-            }
+            },
+
+            consultantDetail: function (id, callback) {
+                var config = {
+                    header: {
+                        'Content-Type': 'application/json'
+                    }
+                }
+                $http.get(api + 'consultationlog/get?id=' + id, config)
+                    .then(function success(res) {
+                        callback(res.data);
+                    }, function error(err) {
+                        $log.log(err)
+                    });
+            },
         }
     }
 })();
