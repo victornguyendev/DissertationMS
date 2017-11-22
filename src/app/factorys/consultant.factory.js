@@ -28,17 +28,18 @@
                     });
             },
             addConsultant: function (data, callback) {
+                console.log(data);
                 var data_request = {
-                    'Customer': data.cusName,
-                    'CustomerNumPhone': data.cusPhone,
-                    'Content': data.content,
-                    'Datetime': data.datetime,
-                    'NumChar': data.words,
+                    'CustomerId': data.CustomerId,
+                    'Content': data.Content,
+                    'Datetime': data.Datetime,
+                    'NumChar': data.NumChar,
                     'SourceId': data.SourceId,
                     'WebsiteId': data.WebsiteId,
-                    'CounselorId': data.id,
-
+                    'CounselorName': data.CounselorName,
+                    'IsPotential' : data.IsPotential,  
                 };
+                console.log(data_request);
                 var config = {
                     header: {
                         'Content-Type': 'application/json',

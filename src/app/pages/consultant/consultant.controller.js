@@ -6,13 +6,13 @@
     .controller('ConsultantController', ConsultantController);
 
   /** @ngInject */
-  function ConsultantController( common, consultant, post, collaborator, customer, user, moment, $localStorage,$window,$stateParams) {
+  function ConsultantController(common, consultant, post, collaborator, customer, user, moment, $localStorage, $window, $stateParams) {
     var vm = this;
-    var defautVa = 0;
-    vm.time = new Date();
-    var postMoney = 10000000;
+
     var id = $stateParams.id;
     vm.consultant = {};
+    vm.customer = {};
+    vm.consultant.Datetime = new Date();
     // define check item
     vm.isCheck = false;
     // define angular cookie 
@@ -69,26 +69,37 @@
     });
 
     vm.addConsultant = function () {
-      vm.consultant.id = vm.loginInfo.CounselorId;
-      consultant.addConsultant(vm.consultant, function (res) {
+      vm.consultant.CounselorId = vm.loginInfo.CounselorId;
+      customer.addCustomer(vm.customer, function (res) {
         console.log(res);
-        // if (vm.consultant.postContent && vm.consultant.postMoney) {
-        //   post.addPost(, function (res) {
-        //     console.log(res);
-        //   })
-        // }
+        if (res != 0 && res != null) {
+          vm.consultant.CustomerId = res;
+          consultant.addConsultant(vm.consultant, function (res) {
+
+            console.log(res);
+            // if (vm.consultant.postContent && vm.consultant.postMoney) {
+            //   post.addPost(, function (res) {
+            //     console.log(res);
+            //   })
+            // }
+          })
+        }
       })
+      if (vm.customer.CustomerId) {
+
+
+      }
     };
 
-    vm.viewDetail = function(id) {
+    vm.viewDetail = function (id) {
       $window.location = "/consultant/" + id;
-		}
-   
-    if(id) {
-			consultant.consultantDetail(id, function(res) {
-				vm.consultant = res;
-				console.log(res);
-			})
-		}
+    }
+
+
+    if (id) {
+      consultant.consultantDetail(id, function (res) {
+        vm.consultantDetail = res;
+      })
+    }
   }
 })();

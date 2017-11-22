@@ -28,7 +28,29 @@
 				}, function error(err) {
 					$log.log(err)
 				});
-			}
+			},
+			addCustomer: function (data, callback) {
+                console.log(data);
+                var data_request = {
+                    'FullName': data.FullName,
+                    'NumPhone': data.NumPhone,
+                    'Email': data.Email,
+                };
+                console.log(data_request);
+                var config = {
+                    header: {
+                        'Content-Type': 'application/json',
+                    }
+                }
+                $http.post(api + 'customers/new', data_request, config)
+                    .then(function success(res) {
+                        callback(res.data);
+                    }, function error(err) {
+                        $log.log(err)
+                    });
+            },
+
+
 		}
 	}
 })();
