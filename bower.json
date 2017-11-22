@@ -24,7 +24,8 @@
     "ngstorage": "^0.3.11",
     "bootstrap-ui-datetime-picker": "^2.6.0",
     "select2": "^4.0.5",
-    "tg-angular-validator": "^1.2.10"
+    "tg-angular-validator": "^1.2.10",
+    "angular-input-masks": "^2.6.0"
   },
   "overrides": {
     "bootstrap-sass": {

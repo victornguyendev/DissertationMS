@@ -1,7 +1,6 @@
 <section class="content-header">
     <h1>
       Danh sách tư vấn
-      <small>List post</small>
     </h1>
   </section>
   <!-- Main content -->
@@ -24,7 +23,7 @@
                 </tr>
               </thead>
               <tbody>
-                  <tr ng-repeat="item in vm.listConsultant.Data">
+                  <tr ng-repeat="item in vm.listConsultant.Data" ng-click="vm.viewDetail(item.ConsultationLogId)">
                       <td>{{item.CustomerName}}</td>
                       <td>{{item.CustomerNumPhone}}</td>
                       <td>{{item.NumChar}}</td>
