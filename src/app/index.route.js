@@ -25,6 +25,11 @@
         controller: 'LoginController',
         controllerAs: 'vm'
       })
+      .state('logout', {
+        url: '/logout',
+        controller: 'LogoutController',
+        controllerAs: 'vm'
+      })
       .state('main.post', {
         url: '/post',
         templateUrl: 'app/pages/post/post.html',
@@ -62,12 +67,6 @@
         url: '/consultant/detail',
         templateUrl: 'app/pages/consultant/consultant-detail.html',
         controller: 'ConsultantController',
-        controllerAs: 'vm'
-      })
-      .state('main.logout', {
-        url: '/logout',
-        templateUrl: 'app/pages/logout/logout.html',
-        controller: 'LogoutController',
         controllerAs: 'vm'
       });
 

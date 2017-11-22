@@ -11,15 +11,13 @@ angular
 
 		if(!$localStorage.user) {
 			$window.location = "/login";
-		} else {
-			var token = $localStorage.user.Token;
 		}
+		
+		var token = $localStorage.user.Token;
 
-		vm.logout = function() {
-			user.logout(token, function(res) {
-				delete $localStorage.user;
-				$window.location = "/login";
-			});
-		}
+		user.logout(token, function(res) {
+			delete $localStorage.user;
+			$window.location = "/login";
+		});
 	}
 })();
