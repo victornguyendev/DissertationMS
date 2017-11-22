@@ -1,11 +1,13 @@
-<section class="content-header">
-	<h1>
-		Chi tiết bài viết
-	</h1>
+<section class="content-header clearfix">
+	<h1 class="pull-left">Chi tiết bài viết</h1>
+	<div class="pull-right">
+		<button type="submit" class="btn btn-primary">Lưu lại</button>
+		<button type="reset" class="btn btn-default">Hủy</button>
+	</div>
 </section>
 <!-- Main content -->
 <section class="content container-fluid">
-	<form name="postForm" ng-submit="vm.createPost()">
+	<form name="postForm" ng-submit="vm.updatePost()">
 		<div class="box box-primary">
 			<div class="box-body">
 				<div class="row">
@@ -92,9 +94,11 @@
 				    </div>
 				</div>
 			</div>
+		</div>
+		<div class="box box-default">
 			<div class="row">
-				<div class="col-md-6">
-					<div class="box-header">
+				<div class="col-md-12">
+					<div class="box-header with-border">
 						<h3 class="box-title">Lịch sử tương tác</h3>
 					</div>
 					<div class="box-body">
@@ -103,12 +107,16 @@
 								<thead>
 									<tr>
 										<th>Nội dung</th>
-										<th>Thời điểm</th>
+										<th>Thời điểm tương tác</th>
+										<th>Hành động dự kiến</th>
+										<th>Thời gian dự kiến</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr ng-repeat="item in vm.consultationLogs.Data">
 										<td>{{item.Content}}</td>
+										<td>{{item.DateTime}}</td>
+										<td>{{item.DateTime}}</td>
 										<td>{{item.DateTime}}</td>
 									</tr>
 								</tbody>
@@ -116,8 +124,12 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-6">
-					<div class="box-header">
+			</div>
+		</div>
+		<div class="box box-default">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="box-header with-border">
 						<h3 class="box-title">Lịch sử thanh toán</h3>
 					</div>
 					<div class="box-body">
@@ -125,28 +137,28 @@
 							<table class="table table-bordered table-striped">
 								<thead>
 									<tr>
-										<th>Bài viết</th>
-										<th>TK ngân hàng</th>
+										<th>Chủ khoảng</th>
+										<th>Số tài khoản</th>
+										<th>Ngân hàng</th>
 										<th>Mô tả</th>
 										<th>Số tiền</th>
+										<th>Ngày giao dịch</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr ng-repeat="item in vm.paymentlogs.Data">
-										<td>{{item.PostId}}</td>
-										<td>{{item.BankAccountId}}</td>
+										<td>{{item.BackUserName}}</td>
+										<td>{{item.BankNumber}}</td>
+										<td>{{item.BankName}}</td>
 										<td>{{item.Content}}</td>
 										<td>{{item.Amount}}</td>
+										<td>{{item.DayTrading}}</td>
 									</tr>
 								</tbody>
 							</table>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="box-footer">
-				<button type="submit" class="btn btn-primary">Lưu lại</button>
-				<button type="reset" class="btn btn-default">Reset</button>
 			</div>
 		</div>
 	</form>
