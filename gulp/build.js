@@ -50,7 +50,7 @@ gulp.task('html', ['inject', 'partials'], function() {
         .pipe(jsFilter.restore)
         .pipe(cssFilter)
         // .pipe($.sourcemaps.init())
-        .pipe($.replace('../../bower_components/bootstrap-sass/assets/fonts/bootstrap/', '../assets/fonts/'))
+        // .pipe($.replace('../../bower_components/bootstrap-sass/assets/fonts/bootstrap/', '../assets/fonts/'))
         .pipe($.cssnano())
         .pipe($.rev())
         // .pipe($.sourcemaps.write('maps'))
@@ -83,7 +83,8 @@ gulp.task('other', function() {
     });
 
     return gulp.src([
-            path.join(conf.paths.src, '/**/*')
+            path.join(conf.paths.src, '/**/*'),
+            path.join('!' + conf.paths.src, '/**/*.scss')
         ])
         .pipe(fileFilter)
         .pipe(gulp.dest(path.join(conf.paths.dist, '/')));
