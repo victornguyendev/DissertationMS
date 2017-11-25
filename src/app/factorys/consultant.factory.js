@@ -27,16 +27,21 @@
                         $log.log(err)
                     });
             },
-            addConsultant: function (data, callback) {
+            createConsultant: function (data, callback) {
                 console.log(data);
                 var data_request = {
-                    'CustomerId': data.CustomerId,
+                    'CustomerName': data.CustomerName,
+                    'CustomerNumPhone':data.CustomerNumPhone,
+                    'CustomerEmail' : data.CustomerEmail,
+                    'PostSummary' : data.PostSummary,
+                    'PostDescription' : data.PostDescription,
+                    'PostAmount' : data.PostAmount,
                     'Content': data.Content,
                     'Datetime': data.Datetime,
                     'NumChar': data.NumChar,
                     'SourceId': data.SourceId,
                     'WebsiteId': data.WebsiteId,
-                    'CounselorName': data.CounselorName,
+                    'CounselorId': data.CounselorId,
                     'IsPotential' : data.IsPotential,  
                 };
                 console.log(data_request);
@@ -45,7 +50,7 @@
                         'Content-Type': 'application/json',
                     }
                 }
-                $http.post(api + 'consultationlog/new', data_request, config)
+                $http.post(api + 'consultationlog/create', data_request, config)
                     .then(function success(res) {
                         callback(res.data);
                     }, function error(err) {

@@ -13,6 +13,7 @@
     vm.consultant = {};
     vm.customer = {};
     vm.consultant.Datetime = new Date();
+    vm.onlyNumbers = "/^\d+$/";
     // define check item
     vm.isCheck = false;
     // define angular cookie 
@@ -27,7 +28,6 @@
 
     consultant.listConsultant(function (res) {
       vm.listConsultant = res;
-      console.log(res);
       if (res) {
         res.Data.forEach(function (value, key) {
           if (value.IsPotential == true) {
@@ -68,27 +68,11 @@
       console.log(res);
     });
 
-    vm.addConsultant = function () {
+    vm.createConsultant = function () {
       vm.consultant.CounselorId = vm.loginInfo.CounselorId;
-      customer.addCustomer(vm.customer, function (res) {
+      consultant.createConsultant(vm.consultant, function (res) {
         console.log(res);
-        if (res != 0 && res != null) {
-          vm.consultant.CustomerId = res;
-          consultant.addConsultant(vm.consultant, function (res) {
-
-            console.log(res);
-            // if (vm.consultant.postContent && vm.consultant.postMoney) {
-            //   post.addPost(, function (res) {
-            //     console.log(res);
-            //   })
-            // }
-          })
-        }
       })
-      if (vm.customer.CustomerId) {
-
-
-      }
     };
 
     vm.viewDetail = function (id) {

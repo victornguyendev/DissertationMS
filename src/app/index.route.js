@@ -68,8 +68,29 @@
         templateUrl: 'app/pages/consultant/consultant-detail.html',
         controller: 'ConsultantController',
         controllerAs: 'vm'
-      });
+      })
+      
+      .state('main.payment', {
+        url: '/payment',
+        templateUrl: 'app/pages/payment/payment.html',
+        controller: 'PaymentController',
+        controllerAs: 'vm'
+      })
 
+      .state('main.payment-add', {
+        url: '/payment/add',
+        templateUrl: 'app/pages/payment/payment-add.html',
+        controller: 'PaymentController',
+        controllerAs: 'vm'
+      })
+
+      .state('main.payment-detail', {
+        url: '/payment/detail/:id',
+        templateUrl: 'app/pages/payment/payment-detail.html',
+        controller: 'PaymentController',
+        controllerAs: 'vm'
+      });
+      
     $urlRouterProvider.otherwise('/');
   }
 

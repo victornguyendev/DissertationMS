@@ -5,7 +5,7 @@
 </section>
 <!-- Main content -->
 <section class="content container-fluid">
-    <form name= "formConsultant" ng-submit="vm.addConsultant()">
+    <form name="formConsultant" ng-submit="vm.createConsultant()">
         <div class="box box-primary">
             <div class="box-body">
                 <div class="row">
@@ -13,11 +13,15 @@
                         <div class="form-group">
                             <div class="form-group">
                                 <label>Tên khách hàng</label>
-                                <input class="form-control" placeholder="Họ tên" ng-model="vm.customer.FullName">
+                                <input class="form-control" placeholder="Họ tên" ng-model="vm.consultant.CustomerName">
                             </div>
                             <div class="form-group">
                                 <label>Số điện thoại</label>
-                                <input class="form-control" placeholder="Số điện thoại" ng-model="vm.customer.NumPhone">
+                                <input type="number" class="form-control" placeholder="Số điện thoại" ng-model="vm.consultant.CustomerNumPhone">
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" class="form-control" placeholder="Email" ng-model="vm.consultant.CustomerEmail">
                             </div>
                             <div class="form-group">
                                 <label>Nhu cầu khách hàng</label>
@@ -27,55 +31,65 @@
                                 <label>
                                     <input type="checkbox" ng-true-value="1" ng-false-value="0" ng-model="vm.consultant.IsPotential"> Đã chốt
                                 </label>
-                            </div>        
-                            <div class="form-group" ng-if="vm.consultant.IsPotential == '1'">
+                            </div>
+                            <div class="form-row" ng-if="vm.consultant.IsPotential == '1'">
                                 <div class="form-group">
-                                    <label>Nội dung bài viết</label>
-                                    <textarea class="form-control" placeholder="Nội dung bài viết" rows="3" ng-model="vm.consultant.postContent"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label>Thành tiền</label>
-                                    <div class="form-group input-group">
-                                        <input type="text" class="form-control" ui-number-mask="3" g-init="vm.consultant.postMoney = 10000000" ng-model="vm.consultant.postMoney">
-                                        <span class="input-group-addon">VNĐ</span>
+                                    <div class="form-group">
+                                        <label>Summary</label>
+                                        <input class="form-control" placeholder="Summary" ng-model="vm.consultant.PostSummary">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Thành tiền</label>
+                                        <div class="form-group input-group">
+                                            <input type="text" class="form-control" ui-number-mask="3" ng-init="vm.consultant.PostAmount = 10000000" ng-model="vm.consultant.PostAmount">
+                                            <span class="input-group-addon">VNĐ</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- /.col -->
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Ngày tư vấn</label>
-                            <div class="input-group width-full">
-                                <input type="text" class="form-control datetimepicker" ng-init="vm.consultant.Datetime" datetime-picker="dd-MM-yyyy hh:mm:ss" ng-model="vm.consultant.Datetime" is-open="vm.is_open" ng-click="vm.showDateTimePicker()">
+                        </div/>
+                        <!-- /.col -->
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Ngày tư vấn</label>
+                                <div class="input-group width-full">
+                                    <input type="text" class="form-control datetimepicker" ng-init="vm.consultant.Datetime" datetime-picker="dd-MM-yyyy hh:mm:ss"
+                                        ng-model="vm.consultant.Datetime" is-open="vm.is_open" ng-click="vm.showDateTimePicker()">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Số từ</label>
+                                <div class="form-group input-group">
+                                    <input type="number" class="form-control" ng-init="vm.consultant.NumChar = 0" ng-model="vm.consultant.NumChar">
+                                    <span class="input-group-addon">Từ</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Nguồn</label>
+                                <select class="form-control" ng-model="vm.consultant.SourceId">
+                                    <option value="">Lựa chọn nguồn</option>
+                                    <option ng-repeat="item in vm.consultant.source" value="{{item.SourceId}}">{{item.Name}}</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Trang</label>
+                                <select class="form-control" ng-model="vm.consultant.WebsiteId">
+                                    <option value="">Lựa chọn trang</option>
+                                    <option ng-repeat="item in vm.consultant.page" value="{{item.WebsiteId}}">{{item.Name}}</option>
+                                </select>
+                            </div>
+                            <br><br><br><br><br><br>
+                            <div class="form-group" ng-if="vm.consultant.IsPotential == '1'">
+                                <label>Nội dung bài viết</label>
+                                <textarea class="form-control" placeholder="Nội dung bài viết" rows="5" ng-model="vm.consultant.PostDescription"></textarea>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label>Số từ</label>
-                            <div class="form-group input-group">
-                                <input type="number" class="form-control" ng-init="vm.consultant.NumChar = 0" ng-model="vm.consultant.NumChar">
-                                <span class="input-group-addon">Từ</span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Nguồn tham khảo</label>
-                            <select class="form-control" ng-model="vm.consultant.SourceId">
-                                <option value="">Lựa chọn nguồn tham khảo</option>
-                                <option ng-repeat="item in vm.consultant.source" value="{{item.SourceId}}">{{item.Name}}</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Trang</label>  
-                            <select class="form-control" ng-model="vm.consultant.WebsiteId">
-                                <option value="">Lựa chọn trang</option>
-                                <option ng-repeat="item in vm.consultant.page" value="{{item.WebsiteId}}">{{item.Name}}</option>
-                            </select>
-                        </div>
                     </div>
+                    <button type="submit" class="btn btn-primary">Lưu lại</button>
+                    <button type="reset" class="btn btn-default">Huỷ </button>
                 </div>
-                <button type="submit" class="btn btn-primary">Lưu lại</button>
-                <button type="reset" class="btn btn-default">Huỷ </button>
+
             </div>
         </div>
     </form>
