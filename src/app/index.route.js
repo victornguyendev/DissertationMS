@@ -89,6 +89,27 @@
         templateUrl: 'app/pages/payment/payment-detail.html',
         controller: 'PaymentController',
         controllerAs: 'vm'
+      })
+      
+      .state('main.customer', {
+        url: '/customer',
+        templateUrl: 'app/pages/customer/customer.html',
+        controller: 'CustomerController',
+        controllerAs: 'vm'
+      })
+
+      .state('main.customer-add', {
+        url: '/customer/add',
+        templateUrl: 'app/pages/customer/customer-add.html',
+        controller: 'CustomerController',
+        controllerAs: 'vm'
+      })
+
+      .state('main.customer-detail', {
+        url: '/customer/detail/:id',
+        templateUrl: 'app/pages/customer/customer-detail.html',
+        controller: 'CustomerController',
+        controllerAs: 'vm'
       });
       
     $urlRouterProvider.otherwise('/');
