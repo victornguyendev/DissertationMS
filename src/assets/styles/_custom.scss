@@ -26,3 +26,12 @@ textarea.post-description {
 		}
 	}
 }
+
+.table-fixed {
+	width: 100%;
+
+	tbody {
+		overflow-x: auto;
+		width: 100%;
+	}
+}

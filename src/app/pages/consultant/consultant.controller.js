@@ -69,9 +69,8 @@
     });
 
     vm.createConsultant = function () {
-      vm.consultant.CounselorId = vm.loginInfo.CounselorId;
       consultant.createConsultant(vm.consultant, function (res) {
-        console.log(res);
+        // $window.location = "/consultant/" + ;
       })
     };
 

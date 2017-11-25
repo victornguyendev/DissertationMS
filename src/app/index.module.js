@@ -12,7 +12,7 @@
             'ui.bootstrap',
             'ui.bootstrap.datetimepicker',
             'ui.utils.masks',
-            'datatables'
+            'datatables',
         ]);
 
 })();

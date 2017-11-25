@@ -1,9 +1,6 @@
 <section class="content-header clearfix">
-	<h1 class="pull-left">Chi tiết bài viết</h1>
-	<div class="pull-right">
-		<button type="submit" class="btn btn-primary">Lưu lại</button>
-		<button type="reset" class="btn btn-default">Hủy</button>
-	</div>
+	<h1>Chi tiết bài viết</h1>
+
 </section>
 <!-- Main content -->
 <section class="content container-fluid">
@@ -45,13 +42,14 @@
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6">
-					<div class="box-header">
-						<h3 class="box-title">Cộng tác viên</h3>
-					</div>
-					<div class="box-body">
+				<br>
+
+				<div class="row">
+					<div class="col-md-6">
+						<div>
+							<h4 class="box-title">Cộng tác viên</h4>
+						</div>
+						<br>
 						<div class="form-group">
 							<label>Cộng tác viên</label>
 							<select class="form-control" ng-model="vm.post.CollaboratorId" ng-init="vm.post.CollaboratorId = ''">
@@ -67,32 +65,33 @@
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="box-header">
-						<h3 class="box-title">Khách hàng</h3>
-					</div>
-					<div class="box-body">
+					<div class="col-md-6">
+						<div>
+							<h4>Khách hàng</h4>
+						</div>
+						<br>
 						<div class="form-group">
 							<label>Số điện thoại</label>
-				              <!-- <select class="form-control select2" ng-model="vm.post.CustomerNumPhone" ng-change="vm.selectCustomer()">
+							<!-- <select class="form-control select2" ng-model="vm.post.CustomerNumPhone" ng-change="vm.selectCustomer()">
 				                <option ng-repeat="item in vm.customers" value="{{item.NumPhone}}">{{item.FulllName}}</option>
 				            </select> -->
-				            <input type="text" class="form-control" ng-model="vm.post.CustomerNumPhone" list="NumPhone" ng-change="vm.selectCustomer()">
-				            <datalist id="NumPhone">
-				            	<option ng-repeat="item in vm.customers" value="{{item.NumPhone}}"></option>
-				            </datalist>
-				        </div>
-				        <div class="form-group">
-				        	<label>Tên khách hàng</label>
-				        	<input type="text" class="form-control" ng-model="vm.post.CustomerName">
-				        </div>
-				        <div class="form-group">
-				        	<label>Email</label>
-				        	<input type="email" class="form-control" ng-model="vm.post.CustomerEmail">
-				        </div>
-				    </div>
+							<input type="text" class="form-control" ng-model="vm.post.CustomerNumPhone" list="NumPhone" ng-change="vm.selectCustomer()">
+							<datalist id="NumPhone">
+								<option ng-repeat="item in vm.customers" value="{{item.NumPhone}}"></option>
+							</datalist>
+						</div>
+						<div class="form-group">
+							<label>Tên khách hàng</label>
+							<input type="text" class="form-control" ng-model="vm.post.CustomerName">
+						</div>
+						<div class="form-group">
+							<label>Email</label>
+							<input type="email" class="form-control" ng-model="vm.post.CustomerEmail">
+						</div>
+					</div>
 				</div>
+				<button type="submit" class="btn btn-primary">Lưu lại</button>
+				<button type="reset" class="btn btn-default">Hủy</button>
 			</div>
 		</div>
 		<div class="box box-default">
@@ -100,6 +99,14 @@
 				<div class="col-md-12">
 					<div class="box-header with-border">
 						<h3 class="box-title">Lịch sử tương tác</h3>
+						<button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-default" style="margin-left: 25px;">
+							<i class="fa fa-plus"></i>
+						</button>
+						<div class="box-tools pull-right">
+							<button type="button" class="btn btn-box-tool" data-widget="collapse">
+								<i class="fa fa-chevron-down"></i>
+							</button>
+						</div>
 					</div>
 					<div class="box-body">
 						<div class="form-group">
@@ -131,6 +138,15 @@
 				<div class="col-md-12">
 					<div class="box-header with-border">
 						<h3 class="box-title">Lịch sử thanh toán</h3>
+						<button class="btn btn-primary btn-sm" style="margin-left: 20px;" 
+							data-toggle="modal" data-target="#modal-default">
+							<i class="fa fa-plus"></i>
+						</button>
+						<div class="box-tools pull-right">
+							<button type="button" class="btn btn-box-tool" data-widget="collapse">
+								<i class="fa fa-chevron-down"></i>
+							</button>
+						</div>
 					</div>
 					<div class="box-body">
 						<div class="form-group">
@@ -164,3 +180,25 @@
 	</form>
 </section>
 <!-- /.content -->
+<div class="modal fade" id="modal-default">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title">Default Modal</h4>
+			</div>
+			<div class="modal-body">
+				<p>One fine body&hellip;</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Save changes</button>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

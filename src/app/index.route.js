@@ -110,6 +110,13 @@
         templateUrl: 'app/pages/customer/customer-detail.html',
         controller: 'CustomerController',
         controllerAs: 'vm'
+      })
+
+      .state('main.reminder', {
+        url: '/reminder',
+        templateUrl: 'app/pages/reminder/reminder.html',
+        controller: 'ReminderController',
+        controllerAs: 'vm'
       });
       
     $urlRouterProvider.otherwise('/');

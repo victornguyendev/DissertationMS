@@ -8,7 +8,7 @@
   /** @ngInject */
   function MainController($timeout, common, $localStorage, $window) {
     var vm = this;
-
+    var numberPhone = "";
     $timeout(function(){
       var script = angular.element('<script src="assets/js/adminlte.js"></script>');
       angular.element('body').append(script);
@@ -21,5 +21,9 @@
     common.listWebsites(function(res) {
       vm.websites = res;
     })
+
+    vm.validatePhone = function(value) {
+      
+    }
   }
 })();
