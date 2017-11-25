@@ -1,8 +1,39 @@
 <section class="content-header">
-        <h1>
-            Tạo khách hàng mớ
-            <input type="text">
-        </h1>
-    </section>
-    
-    <!-- /.content -->
+    <h1>
+        Danh sách khách hàng
+    </h1>
+</section>
+<!-- Main content -->
+<section class="content container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table datatable="ng" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Mã khách hàng</th>
+                                <th>Tên khách hàng</th>
+                                <th>Số điện thoại</th>
+                                <th>Email</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in vm.customers" ng-click="vm.viewDetail(item.CustomerId)" >
+                                <td>{{item.CustomerId}}</td>
+                                <td>{{item.FullName}}</td>
+                                <td>{{item.NumPhone}}</td>
+                                <td>{{item.Email}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>

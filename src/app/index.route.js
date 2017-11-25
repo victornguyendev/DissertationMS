@@ -85,7 +85,7 @@
       })
 
       .state('main.payment-detail', {
-        url: '/payment/detail/:id',
+        url: '/payment/:id',
         templateUrl: 'app/pages/payment/payment-detail.html',
         controller: 'PaymentController',
         controllerAs: 'vm'
@@ -99,14 +99,14 @@
       })
 
       .state('main.customer-add', {
-        url: '/customer/add',
+        url: '/add',
         templateUrl: 'app/pages/customer/customer-add.html',
         controller: 'CustomerController',
         controllerAs: 'vm'
       })
 
       .state('main.customer-detail', {
-        url: '/customer/detail/:id',
+        url: '/customer/:id',
         templateUrl: 'app/pages/customer/customer-detail.html',
         controller: 'CustomerController',
         controllerAs: 'vm'
