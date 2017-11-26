@@ -27,11 +27,15 @@ textarea.post-description {
 	}
 }
 
-.table-fixed {
-	width: 100%;
+.table-scroll {
+	overflow-x: scroll;
+	margin-bottom: 20px;
 
-	tbody {
-		overflow-x: auto;
-		width: 100%;
+	table {
+		margin-bottom: 0;
+	}
+
+	td,th {
+		min-width: 100px;
 	}
 }

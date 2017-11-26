@@ -13,32 +13,26 @@
     <div class="row">
       <div class="col-xs-12">
         <div class="box box-primary">
-          <!-- /.box-header -->
+          <div class="box-header">
+            <div class="col-sm-1" style="padding:0">
+                <label style="padding-top:9px; text-align:right; width:100%">Từ ngày:</label>
+            </div>
+            <div class="col-sm-3" >
+              <input type="text" class="form-control datetimepicker" uib-datepicker-popup="MM-yyyy" ng-model="vm.today" is-open="vm.is_open" ng-click="vm.showDateTimePicker()" datepicker-options="{minMode: 'month'}" datepicker-mode="'month'" ng-change="vm.getListLog(vm.today)">
+            </div>
+          </div>
           <div class="box-body">
             <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
                         <th></th>
-                        <th>user1</th>
-                        <th>user2</th>
-                        <th>user3</th>
-                        <th>user4</th>
+                        <th ng-repeat="name in vm.ConsultationLog">{{name.CustomerName}}({{name.Summary}})</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>09/12</td>
+                    <tr ng-repeat="item in vm.ConsultationLog">
+                        <td>{{item.DateTime}}</td>
                         <td>test</td>
-                        <td>test</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>09/12</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td></td>
-                        <td></td>
                     </tr>
                 </tbody>
             </table>

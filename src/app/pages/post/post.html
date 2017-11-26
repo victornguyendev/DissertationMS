@@ -43,13 +43,16 @@
                 <th>Khách hàng</th>
                 <th>Mô tả</th>
                 <th>CTV</th>
-                <th>Số tiền</th>
+                <th>Số tiền</th>  
                 <th>Trạng thái bài viết</th>
                 <th>Trạng thái thanh toán</th>
+                repeat header
               </tr>
             </thead>
             <tbody>
               <tr class="table-item-link" ng-repeat="item in vm.listpost.Data" ng-click="vm.viewDetail(item.PostId)">
+                td => Date
+                td => repeat Val  
                 <td>{{item.CustomerName}}</td>
                 <td>{{item.Description}}</td>
                 <td>{{item.CollaboratorName}}</td>
