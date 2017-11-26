@@ -102,19 +102,35 @@
 			</div>
 		</div>
 		<div class="box box-default">
+
 			<div class="row">
 				<div class="col-md-12">
 					<div class="box-header with-border">
-						<h3 class="box-title">Lịch sử tương tác</h3>
-						<button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-default" style="margin-left: 25px;">
+						<h3 class="box-title pull-left" style="padding-top:8px;">Lịch sử tương tác</h3>
+						<button class="btn btn-primary btn-sm pull-left" data-toggle="modal" data-target="#modal-default" style="margin-left: 25px;">
 							<i class="fa fa-plus"></i>
 						</button>
+						<div class="col-sm-1" style="padding:0">
+							<label style="padding-top:8px; text-align:right; width:100%">Từ ngày:</label>
+						</div>
+						<div class="col-sm-3">
+							<input type="text" class="form-control datetimepicker" datetime-picker="dd-MM-yyyy hh:mm:ss" ng-init="vm.his.InteractiveStart"
+							 ng-model="vm.his.InteractiveStart" is-open="vm.his.is_openInteractiveStart" ng-click="vm.his.showDateTimePickerInteractiveStart()">
+						</div>
+						<div class="col-sm-1" style="padding:0">
+							<label style="padding-top:8px; text-align:right; width:100%">Đến ngày:</label>
+						</div>
+						<div class="col-sm-3">
+							<input type="text" class="form-control datetimepicker" datetime-picker="dd-MM-yyyy hh:mm:ss" ng-model="vm.his.InteractiveEnd"
+							 ng-init="vm.his.InteractiveEnd" is-open="vm.his.is_openInteractiveEnd" ng-click="vm.his.showDateTimePickerInteractiveEnd()">
+						</div>
 						<div class="box-tools pull-right">
 							<button type="button" class="btn btn-box-tool" data-widget="collapse">
 								<i class="fa fa-chevron-down"></i>
 							</button>
 						</div>
 					</div>
+
 					<div class="box-body">
 						<div class="form-group">
 							<table class="table table-bordered table-striped">
@@ -127,7 +143,7 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr ng-repeat="item in vm.consultationLogs.Data">
+									<tr ng-repeat="item in vm.his.Data">
 										<td>{{item.Content}}</td>
 										<td>{{item.DateTime}}</td>
 										<td>{{item.DateTime}}</td>
@@ -144,10 +160,32 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="box-header with-border">
-						<h3 class="box-title">Lịch sử thanh toán</h3>
-						<button class="btn btn-primary btn-sm" style="margin-left: 20px;" data-toggle="modal" data-target="#modal-default1">
+						<h3 class="box-title pull-left" style="padding-top:8px;">Lịch sử thanh toán</h3>
+						<button class="btn btn-primary btn-sm pull-left" style="margin-left: 20px;" data-toggle="modal" data-target="#modal-default1">
 							<i class="fa fa-plus"></i>
 						</button>
+						<div class="col-sm-1" style="padding:0">
+							<label style="padding-top:8px; text-align:right; width:100%">Từ ngày:</label>
+						</div>
+						<div class="col-sm-3">
+							<input type="text" class="form-control datetimepicker" 
+							datetime-picker="dd-MM-yyyy hh:mm:ss" 
+							 ng-init="vm.his.PaymentStart"
+							 ng-model="vm.his.PaymentStart" 
+							 is-open="vm.his.is_openPaymentStart" 
+							 ng-click="vm.his.showDateTimePickerPaymentStart()">
+						</div>
+						<div class="col-sm-1" style="padding:0">
+							<label style="padding-top:8px; text-align:right; width:100%">Đến ngày:</label>
+						</div>
+						<div class="col-sm-3">
+							<input type="text" class="form-control datetimepicker" 
+							datetime-picker="dd-MM-yyyy hh:mm:ss" 
+							ng-init="vm.his.PaymentEnd"
+							 ng-model="vm.his.PaymentEnd" 
+							 is-open="vm.his.is_openPaymentEnd" 
+							 ng-click="vm.his.showDateTimePickerPaymentEnd()">
+						</div>
 						<div class="box-tools pull-right">
 							<button type="button" class="btn btn-box-tool" data-widget="collapse">
 								<i class="fa fa-chevron-down"></i>
@@ -189,42 +227,45 @@
 <!-- .modal-Lịch sử tương tác -->
 <div class="modal fade" id="modal-default">
 	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-				<h4 class="modal-title">Tạo mới lịch sử tương tác</h4>
-			</div>
-			<div class="modal-body">
-				<div class="form-group">
-					<label>Nội dung</label>
-					<textarea class="form-control post-description" rows="4" ng-model=""></textarea>
+		<form ng-submit="vm.createInteractive()">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title">Tạo mới lịch sử tương tác</h4>
 				</div>
-				<div class="form-group">
-					<label>Thời điểm tương tác</label>
-					<div class="input-group width-full">
-						<input type="text" class="form-control datetimepicker" ng-init="" datetime-picker="dd-MM-yyyy hh:mm:ss" ng-model="" is-open=""
-						 ng-click="">
+
+				<div class="modal-body">
+					<div class="form-group">
+						<label>Nội dung</label>
+						<textarea class="form-control post-description" rows="4" ng-model="vm.his.Content"></textarea>
+					</div>
+					<div class="form-group">
+						<label>Thời điểm tương tác</label>
+						<div class="input-group width-full">
+							<input type="text" class="form-control datetimepicker" ng-init="vm.his.DateTime" datetime-picker="dd-MM-yyyy hh:mm:ss" ng-model="vm.his.DateTime"
+							 is-open="vm.his.is_open" ng-click="vm.his.showDateTimePickerHis()">
+						</div>
+					</div>
+					<div class="form-group">
+						<label>Hành động dự kiến</label>
+						<input type="text" class="form-control" ng-model="vm.his.ExpectedActionContent">
+					</div>
+					<div class="form-group">
+						<label>Thời gian dự kiến</label>
+						<div class="input-group width-full">
+							<input type="text" class="form-control datetimepicker" ng-init="vm.his.ExpectedActionDateTime" datetime-picker="dd-MM-yyyy hh:mm:ss"
+							 ng-model="vm.his.ExpectedActionDateTime" is-open="vm.his.is_openDateFuture" ng-click="vm.his.showDateTimePickerDateFuture()">
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-primary pull-left">Lưu lại</button>
+						<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Đóng</button>
 					</div>
 				</div>
-				<div class="form-group">
-					<label>Hành động dự kiến</label>
-					<input type="text" class="form-control" ng-model="">
-				</div>
-				<div class="form-group">
-					<label>Thời gian dự kiến</label>
-					<div class="input-group width-full">
-						<input type="text" class="form-control datetimepicker" ng-init="" datetime-picker="dd-MM-yyyy hh:mm:ss" ng-model="" is-open="vm.is_open"
-						 ng-click="">
-					</div>
-				</div>
 			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Đóng</button>
-				<button type="button" class="btn btn-primary">Lưu lại</button>
-			</div>
-		</div>
+		</form>
 		<!-- /.modal-content -->
 	</div>
 	<!-- /.modal-dialog -->
@@ -273,8 +314,8 @@
 				</div>
 			</div>
 			<div class="modal-footer">
+				<button type="button" class="btn btn-primary pull-left">Lưu lại</button>
 				<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Đóng</button>
-				<button type="button" class="btn btn-primary">Lưu lại</button>
 			</div>
 		</div>
 		<!-- /.modal-content -->

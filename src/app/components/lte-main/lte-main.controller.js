@@ -26,9 +26,12 @@
       vm.sources = res;
     });
 
+
     collaborator.listCollaborators(function(res){
       vm.collaborators = res.Data;
     });
+
+    
     vm.validatePhone = function(value) {
       
     }
