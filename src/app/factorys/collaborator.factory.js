@@ -10,10 +10,8 @@
 		return {
 			listCollaborators: function(callback) {
 				var data_request = {
-					'Filter': null,
-					'Sort': null,
-					'Index': null,
-					'Size': null
+					'Index': 1,
+					'Size': 100
 				};
 
 				var config = {

@@ -8,13 +8,15 @@ angular
 /** @ngInject */
 function postFactory(api, $log, $http) {
 	return {
-		listPosts: function(callback) {
+		listPosts: function(data, callback) {
 			var data_request = {
 				'Filter': null,
 				'Sort': null,
 				'Index':1,
-				'Size': 100
-			};
+				'Size': 100,
+				'StartDateTime' : data.StartDateTime,
+				'EndDateTime' : data.EndDateTime
+			};	
 			var config = {
 				header: {
 					'Content-Type': 'application/json'
@@ -44,8 +46,11 @@ function postFactory(api, $log, $http) {
 				"CollaboratorId": data.CollaboratorId,
 				"CollNumChar": data.CollNumChar,
 				"SourceId": data.SourceId,
-				"WebsiteId": data.WebsiteId	
+				"WebsiteId": data.WebsiteId, 
+				"Deadline" : data.Deadline,
+				"CreateDateTime" : data.DateTimeNow
 			};
+			console.log(data_request);
 			var config = {
 				header: {
 					'Content-Type': 'application/json'

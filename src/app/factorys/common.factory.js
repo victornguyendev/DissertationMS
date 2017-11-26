@@ -33,7 +33,7 @@
 				}, function error(err) {
 					$log.log(err)
 				});
-			}		
+			},
 		}	
 	}
 })();

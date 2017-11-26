@@ -5,6 +5,22 @@
 </section>
 <!-- Main content -->
 <section class="content container-fluid">
+  <div class="box-header">
+    <div class="col-sm-1" style="padding:0">
+        <label style="padding-top:9px; text-align:right; width:100%">Từ ngày:</label>
+    </div>
+    <div class="col-sm-3" >
+      <input type="text" class="form-control datetimepicker" ng-init="vm.consultant.StartDateTime" datetime-picker="dd-MM-yyyy hh:mm:ss"
+        ng-model="vm.consultant.StartDateTime" is-open="vm.is_openStart" ng-click="vm.showDateTimePicker()">
+    </div>
+    <div class="col-sm-1" style="padding:0">
+        <label style="padding-top:9px; text-align:right; width:100%">Đến ngày:</label>
+    </div>
+    <div class="col-sm-3" >
+      <input type="text" class="form-control datetimepicker" ng-init="vm.consultant.EndDateTime" datetime-picker="dd-MM-yyyy hh:mm:ss"
+        ng-model="vm.consultant.EndDateTime" is-open="vm.is_openEnd" ng-click="vm.showDateTimePicker1()">
+    </div>
+  </div>
   <div class="row">
     <div class="col-xs-12">
       <div class="box">
@@ -23,7 +39,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr ng-repeat="item in vm.listConsultant.Data" ng-click="vm.viewDetail(item.ConsultationLogId)">
+              <tr ng-repeat="item in vm.list.Data" ng-click="vm.viewDetail(item.ConsultationLogId)">
                 <td>{{item.CustomerName}}</td>
                 <td>{{item.CustomerNumPhone}}</td>
                 <td>{{item.NumChar}}</td>
@@ -43,4 +59,4 @@
   </div>
   <!-- /.row -->
 </section>
-  <!-- /.content -->
+<!-- /.content -->

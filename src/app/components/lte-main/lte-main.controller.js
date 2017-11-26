@@ -6,7 +6,7 @@
   .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, common, $localStorage, $window) {
+  function MainController(collaborator, $timeout, common, $localStorage, $window) {
     var vm = this;
     var numberPhone = "";
     $timeout(function(){
@@ -20,8 +20,15 @@
 
     common.listWebsites(function(res) {
       vm.websites = res;
-    })
+    });
 
+    common.listSources(function(res) {
+      vm.sources = res;
+    });
+
+    collaborator.listCollaborators(function(res){
+      vm.collaborators = res.Data;
+    });
     vm.validatePhone = function(value) {
       
     }

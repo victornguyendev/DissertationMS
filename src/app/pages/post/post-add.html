@@ -22,11 +22,18 @@
               </div>
             </div>
             <div class="form-group">
-              <label>Website</label>
-              <select class="form-control" ng-model="vm.post.WebsiteId" ng-init="vm.post.WebsiteId = ''">
-                <option value="">Select website</option>
-                <option ng-repeat="item in main.websites" value="{{item.WebsiteId}}">{{item.Name}}</option>
-              </select>
+              <label>Thành tiền</label>
+              <div class="input-group">
+                <input type="number" class="form-control" ng-model="vm.post.OrderAmount">
+                <span class="input-group-addon">VNĐ</span>
+              </div>
+            </div>
+            <div class="form-group">
+                <label>Deadline</label>
+                <div class="input-group width-full">
+                    <input type="text" class="form-control datetimepicker" ng-init="vm.post.Deadline" datetime-picker="dd-MM-yyyy hh:mm:ss"
+                        ng-model="vm.post.Deadline" is-open="vm.is_open" ng-click="vm.showDateTimePicker2()">
+                </div>
             </div>
           </div>
           <div class="col-md-6">
@@ -35,12 +42,20 @@
               <textarea class="form-control post-description" rows="4" ng-model="vm.post.Description"></textarea>
             </div>
             <div class="form-group">
-              <label>Thành tiền</label>
-              <div class="input-group">
-                <input type="number" class="form-control" ng-model="vm.post.OrderAmount">
-                <span class="input-group-addon">VNĐ</span>
-              </div>
+              <label>Website</label>
+              <select class="form-control" ng-model="vm.post.WebsiteId" ng-init="vm.post.WebsiteId = ''">
+                <option value="">Lựa chọn website</option>
+                <option ng-repeat="item in main.websites" value="{{item.WebsiteId}}">{{item.Name}}</option>
+              </select>
             </div>
+            <div class="form-group">
+              <label>Nguồn</label>
+              <select class="form-control" ng-model="vm.post.SourceId" ng-init="vm.post.SourceId = ''">
+                <option value="">Lựa chọn nguồn</option>
+                <option ng-repeat="item in main.sources" value="{{item.SourceId}}">{{item.Name}}</option>
+              </select>
+            </div>
+
           </div>
         </div>
       </div>
@@ -54,7 +69,7 @@
               <label>Cộng tác viên</label>
               <select class="form-control" ng-model="vm.post.CollaboratorId" ng-init="vm.post.CollaboratorId = ''">
                 <option value="">Select Collaborator</option>
-                <option ng-repeat="item in vm.collaborators" value="{{item.id}}">{{item.name}}</option>
+                <option ng-repeat="item in main.collaborators" value="{{item.CollaboratorId}}">{{item.FullName}}</option>
               </select>
             </div>
             <div class="form-group">

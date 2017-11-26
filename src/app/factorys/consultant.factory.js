@@ -8,12 +8,14 @@
     /** @ngInject */
     function consultantFactory(api, $log, $http) {
         return {
-            listConsultant: function (callback) {
+            listConsultant: function (data, callback) {
                 var data_request = {
                     'Filter': null,
                     'Sort': null,
                     'Index': 1,
-                    'Size': 100
+                    'Size': 100,
+                    'StartDateTime': data.StartDateTime,
+                    'EndDateTime': data.EndDateTime
                 };
                 var config = {
                     header: {

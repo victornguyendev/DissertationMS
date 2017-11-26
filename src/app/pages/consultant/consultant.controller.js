@@ -12,28 +12,42 @@
     var id = $stateParams.id;
     vm.consultant = {};
     vm.customer = {};
+
+    
     vm.consultant.Datetime = new Date();
-    vm.onlyNumbers = "/^\d+$/";
+    var now = moment(new Date());
+    vm.consultant.EndDateTime = new Date(now.add(1,'days').format("YYYY-MM-DDTHH:mm:ssZ"));
+    vm.consultant.StartDateTime = new Date(now.add(-1,'months').format("YYYY-MM-DDTHH:mm:ssZ"));
+
     // define check item
     vm.isCheck = false;
     // define angular cookie 
     var CounselorId = $localStorage.user.UserId;
     var token = $localStorage.user.Token;
-
+    
     vm.is_open = false;
+    vm.is_openStart = false; 
+    vm.is_openEnd = false;
 
-    vm.showDateTimePicker = function () {
+    vm.showDateTimePicker2 = function () {
       vm.is_open = true;
     }
 
-    consultant.listConsultant(function (res) {
-      vm.listConsultant = res;
+    vm.showDateTimePicker = function () {
+      vm.is_openStart = true;
+    }
+    vm.showDateTimePicker1 = function () {
+      vm.is_openEnd = true;
+    }
+
+    consultant.listConsultant(vm.consultant, function (res) {
+      vm.list = res;
       if (res) {
         res.Data.forEach(function (value, key) {
           if (value.IsPotential == true) {
-            vm.listConsultant.Data[key].IsPotential = 'Đã chốt';
+            vm.list.Data[key].IsPotential = 'Đã chốt';
           } else {
-            vm.listConsultant.Data[key].IsPotential = 'Chưa chốt';
+            vm.list.Data[key].IsPotential = 'Chưa chốt';
           }
         })
       }

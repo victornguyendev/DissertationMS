@@ -15,6 +15,27 @@
 		console.log($localStorage.user);
 		vm.post = {};
 
+		vm.post.Deadline = new Date();
+		vm.post.DateTimeNow = new Date();
+		var now = moment(new Date());
+		vm.post.EndDateTime = new Date(now.add(1,'days').format("YYYY-MM-DDTHH:mm:ssZ"));
+		vm.post.StartDateTime = new Date(now.add(-1,'months').format("YYYY-MM-DDTHH:mm:ssZ"));	
+		vm.is_openStart = false; 
+		vm.is_openEnd = false;
+		vm.is_open = false;
+
+		vm.showDateTimePicker = function () {
+		  vm.is_openStart = true;
+		}
+
+		vm.showDateTimePicker1 = function () {
+		  vm.is_openEnd = true;
+		}
+
+		vm.showDateTimePicker2 = function () {
+			vm.is_open = true;
+		}
+
 		vm.paymentlogs = {
 			"Data": [
 			{
@@ -79,7 +100,7 @@
 			"Total": 3
 		}
 
-		post.listPosts(function(res) {
+		post.listPosts(vm.post, function(res) {
 			vm.listpost = res;
 			if(res) {
 				res.Data.forEach(function(value, key) {
